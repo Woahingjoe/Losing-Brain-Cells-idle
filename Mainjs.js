@@ -1,7 +1,7 @@
 /* First function(Book bot) has been commented for my benefit
-   All things are now commented at the beginning at purpose because my eyes started dying
+   There are comments saying what the following function does
 */
-//Save Data or primary variables
+//Save Data
 var saveData = {
     brainCells: 0,
     money: 0,
