@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simulating brain cell lost</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        
+        <!-- My own CSS -->
+        <link rel="stylesheet" type="text/css" href="CSS.css">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- Bootstrap JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container-fluid bg-dark">
+            <div class="jumbotron border border-light">
+                <h1 class="text-center">Quick! Showcase how much braincells Edwin loses in one day!</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="jumbotron border border-light">
+                    <p>You gain .10$ for every brain cell lost, you have:<p id="totalMoney"></p></p>
+                    <p>Brain cells lost:<p id="brainCells"></p> </p> <br>
+                </div>
+                <div class="container-fluid bg-dark">
+                    <div class="border border-light bg-light rounded">
+                        <p>Say something so stupid that one brain cell gets lost.</p>
+                        <button type="button" class="btn btn-secondary" id="Say">Say something stupid</button> <br>
+                    </div>
+                    <br>
+                    <div class="border border-light bg-light rounded">
+                        <p>Hire a bot to read confusing books, bound to cause confusion.</p>
+                        <p>Costs <span id="bookCost"> </span>$ - Loses 1 brain cells per sec - you have: <span id="bookAmount"></span></p>
+                        <button type="button" class="btn btn-secondary" id="bookBot">Hire one!</button> <br>
+                    </div>
+                    <br>
+                    <div class="border border-light bg-light rounded">
+                        <p>A magician can pull so many breath-taking stunts, including some to lose your mind.</p>
+                        <p>Costs <span id="magicCost"> </span>$ - Loses 4 brain cells per sec - you have: <span id="magicAmount"></span></p>
+                        <button type="button" class="btn btn-secondary" id="magician">Hire one!</button> <br>
+                    </div>    
+                    <br>
+                    <div class="border border-light bg-light rounded">
+                        <p>Whats better than a bot reading confusing books? A bot speedrunning videos by 10x</p>
+                        <p>Costs <span id="videoCost"></span>$ - Loses 8 brain cells per sec - you have: <span id="videoAmount"></span></p>
+                        <button type="button" class="btn btn-secondary" id="videoBot">Hire one!</button> <br>
+                    </div>
+                    <br>
+                    <div class="border border-light bg-light rounded">
+                        <p>Bots that bonk people? Now thats a critical hit!</p>
+                        <p>Costs <span id="bonkCost"></span>$ - Loses 20 brain cells per sec - you have: <span id="bonkAmount"></span></p>
+                        <button type="button" class="btn btn-secondary" id="bonkBot">Hire one!</button> <br>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <footer class="bg-light border border-light rounded">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                     More info
+                </button>
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-center">
+                                <h5 class="modal-title" id="exampleModalLongTitle">More info</h5>
+                            </div>
+                            <div class="modal-body">
+                                Hello! I made this small thing just for a quick refresh on my learning skills! 
+                                Although not perfect, I feel like I have learned plenty just getting to this point, I hope. <br>
+                                I promised that I would make this one day and here it is, ready for you to break :P 
+                                Hope that whoever reads this can get as much as a laugh as I did making this. 
+                                <br> <br>
+                                Version: 1.5 <br>
+                                <ul>
+                                    <li>Saving works! Preach! Even with this, issues still exist which makes this system useless anyway</li>
+                                    <li>Code rewritten and made eaiser to program with (Good for me not you)</li>
+                                </ul>
+                                Known issues I may or may not fix: <br>
+                                <ul>
+                                    <li>No real end other than endlessly increasing brain cell loseage</li>
+                                    <li>Progression not as bad, but still not enough</li>
+                                    <li>Lack of, well, visuals</li>
+                                    <li>Loading the game will not load production that should be gained(Requires more code changing)</li>
+                                    <li>No way to delete save yet</li>
+                                    <li>No confrimations or warning for loading game</li>
+                                    <li>No auto-save and no confirmations for saving</li>
+                                    <li>Need to be moved to own website(Considering github)</li>
+                                </ul>
+                                
+                            
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#specialthanks">
+                     Special Thanks
+                </button>
+                <div class="modal fade" id="specialthanks" tabindex="-1" role="dialog" aria-labelledby="specialthankstitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-center">
+                                <h5 class="modal-title" id="specialthankstitle">More info</h5>
+                            </div>
+                            <div class="modal-body">
+                                Special thanks to bootstrap for making the design and look of this webpage possible. <br>
+                                Thanks to dhmstark - https://dhmholley.co.uk/incrementals.html and u/ShetlandJames for helping
+                                me learn some code I did not know 
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success" id="Save">Save</button>
+                <button class="btn btn-success" id="Load">Load</button>
+            </footer>
+            <div>
+                <script type="text/javascript" src="Mainjs.js"></script>
+            </div>
+            
+        </div>
+           
+    </body>
+</html>
