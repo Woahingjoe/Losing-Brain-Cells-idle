@@ -45,9 +45,6 @@ function buyBook() {
         document.getElementById('bookCost').innerHTML = saveData.bookCosts;
         document.getElementById('bookAmount').innerHTML = saveData.books; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$';
-        //Increase brain and number every second
-        window.setInterval(function(){ brain(saveData.books); }, 1000);
-        window.setInterval(function(){ money(saveData.books); }, 1000);
     }
 }
 //Activate buyBook function on button click
@@ -73,8 +70,6 @@ function buyMagic() {
         document.getElementById('magicCost').innerHTML = saveData.magiciansCost;
         document.getElementById('magicAmount').innerHTML = saveData.magicians; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$'; 
-        window.setInterval(function(){ brain4(saveData.magicians); }, 1000);
-        window.setInterval(function(){ money4(saveData.magiciansCost); }, 1000);
     }
 }
 magician.addEventListener("click", buyMagic);
@@ -98,8 +93,6 @@ function buyVideo() {
         document.getElementById('videoCost').innerHTML = saveData.videoCosts;
         document.getElementById('videoAmount').innerHTML = saveData.videos; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$'; 
-        window.setInterval(function(){ brain8(saveData.videos); }, 1000);
-        window.setInterval(function(){ money8(saveData.videos); }, 1000);
     }
 }
 videoBot.addEventListener("click", buyVideo);
@@ -123,12 +116,20 @@ function buyBonk() {
         document.getElementById('bonkCost').innerHTML = saveData.bonkCosts;
         document.getElementById('bonkAmount').innerHTML = saveData.bonks; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$'; 
-        window.setInterval(function(){ brain20(saveData.bonks); }, 1000);
-        window.setInterval(function(){ money20(saveData.bonks); }, 1000);
     }
 }
 bonkBot.addEventListener("click", buyBonk);
-
+//Production
+window.setInterval(function(){
+   brain(saveData.books);
+   money(saveData.books);
+   brain4(saveData.magicians);
+   money4(saveData.magiciansCost);
+   brain8(saveData.videos);
+   money8(saveData.videos);
+   brain20(saveData.bonks);
+   money20(saveDara.bonks);
+}, 1000);
 //Save function
 function save() {
     localStorage.setItem("gamesave",JSON.stringify(saveData));
