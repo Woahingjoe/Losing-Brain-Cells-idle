@@ -4,7 +4,7 @@
 //Save Data
 var saveData = {
     brainCells: 0,
-    money: 0,
+    money: 0.0,
     books: 0,
     bookCosts: 3.0,
     magicians: 0,
@@ -18,24 +18,19 @@ var saveData = {
 document.getElementById('brainCells').innerHTML = saveData.brainCells;
 document.getElementById('totalMoney').innerHTML = saveData.money;
 //Say something/Book bot brain and money increase functions
-function brain() {
-    saveData.brainCells = saveData.brainCells + 1;
+function brain(number) {
+    saveData.brainCells = saveData.brainCells + number;
     document.getElementById('brainCells').innerHTML = saveData.brainCells;
 }
-function money() {
-    saveData.money = saveData.money + 0.10;
+function money(number) {
+    saveData.money = saveData.money + (number/10);
     document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$';
 }
-//Say something increase on button click
-var Say = document.getElementById("Say");
-Say.addEventListener("click", money);
-Say.addEventListener("click", brain);
-
 //Book bot first load
 document.getElementById('bookAmount').innerHTML = saveData.books;
 document.getElementById('bookCost').innerHTML = saveData.bookCosts;
 //Book bot increase function
-function buyBook() { 
+function buyBook(number) { 
     if(saveData.money >= saveData.bookCosts) {
         //Change amount owned, money, and cost
         saveData.books = saveData.books + 1; 
@@ -45,27 +40,22 @@ function buyBook() {
         document.getElementById('bookCost').innerHTML = saveData.bookCosts;
         document.getElementById('bookAmount').innerHTML = saveData.books; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$';
-        //Increase brain and number every second
-        window.setInterval(function(){ brain(saveData.books); }, 1000);
-        window.setInterval(function(){ money(saveData.books); }, 1000);
     }
 }
-//Activate buyBook function on button click
-bookBot.addEventListener("click", buyBook);
 //Magician brain and money increase functions
-function brain4() {
-    saveData.brainCells = saveData.brainCells + 4;
+function brain4(number) {
+    saveData.brainCells = saveData.brainCells + (number * 4);
     document.getElementById('brainCells').innerHTML = saveData.brainCells;
 }
-function money4() {
-    saveData.money = saveData.money + 0.40;
+function money4(number) {
+    saveData.money = saveData.money + ((number/10) * 4);
     document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$';
 }
 //Magician first load
 document.getElementById('magicAmount').innerHTML = saveData.magicians;
 document.getElementById('magicCost').innerHTML = saveData.magiciansCost;
 //Magician increase function
-function buyMagic() { 
+function buyMagic(number) { 
     if(saveData.money >= saveData.magiciansCost) {
         saveData.magicians = saveData.magicians + 1; 
         saveData.money = saveData.money - saveData.magiciansCost;
@@ -73,24 +63,21 @@ function buyMagic() {
         document.getElementById('magicCost').innerHTML = saveData.magiciansCost;
         document.getElementById('magicAmount').innerHTML = saveData.magicians; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$'; 
-        window.setInterval(function(){ brain4(saveData.magicians); }, 1000);
-        window.setInterval(function(){ money4(saveData.magiciansCost); }, 1000);
     }
 }
-magician.addEventListener("click", buyMagic);
 //Video bot brain and money increase functions
-function brain8() {
-    saveData.brainCells = saveData.brainCells + 8;
+function brain8(number) {
+    saveData.brainCells = saveData.brainCells + (number * 8);
     document.getElementById('brainCells').innerHTML = saveData.brainCells;
 }
-function money8() {
-    saveData.money = saveData.money + 0.80;
+function money8(number) {
+    saveData.money = saveData.money + ((number/10)* 8);
     document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$';
 }
 //Video bot increase function
 document.getElementById('videoAmount').innerHTML = saveData.videos;
 document.getElementById('videoCost').innerHTML = saveData.videoCosts;
-function buyVideo() { 
+function buyVideo(number) { 
     if(saveData.money >= saveData.videoCosts) {
         saveData.videos = saveData.videos + 1; 
         saveData.money = saveData.money - saveData.videoCosts;
@@ -98,24 +85,21 @@ function buyVideo() {
         document.getElementById('videoCost').innerHTML = saveData.videoCosts;
         document.getElementById('videoAmount').innerHTML = saveData.videos; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$'; 
-        window.setInterval(function(){ brain8(saveData.videos); }, 1000);
-        window.setInterval(function(){ money8(saveData.videos); }, 1000);
     }
 }
-videoBot.addEventListener("click", buyVideo);
 //Bonk bot brain and money increase functions
-function brain20() {
-    saveData.brainCells = saveData.brainCells + 20;
+function brain20(number) {
+    saveData.brainCells = saveData.brainCells + (number * 20);
     document.getElementById('brainCells').innerHTML = saveData.brainCells;
 }
-function money20() {
-    saveData.money = saveData.money + 2.0;
+function money20(number) {
+    saveData.money = saveData.money + ((number/10)* 20);
     document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$';
 }
 //Bonk bot increase function
 document.getElementById('bonkAmount').innerHTML = saveData.bonks;
 document.getElementById('bonkCost').innerHTML = saveData.bonkCosts;
-function buyBonk() { 
+function buyBonk(number) { 
     if(saveData.money >= saveData.bonkCosts) {
         saveData.bonks = saveData.bonks + 1; 
         saveData.money = saveData.money - saveData.bonkCosts;
@@ -123,12 +107,19 @@ function buyBonk() {
         document.getElementById('bonkCost').innerHTML = saveData.bonkCosts;
         document.getElementById('bonkAmount').innerHTML = saveData.bonks; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$'; 
-        window.setInterval(function(){ brain20(saveData.bonks); }, 1000);
-        window.setInterval(function(){ money20(saveData.bonks); }, 1000);
     }
 }
-bonkBot.addEventListener("click", buyBonk);
-
+//Production
+window.setInterval(function(){
+   brain(saveData.books);
+   money(saveData.books);
+   brain4(saveData.magicians);
+   money4(saveData.magicians);   
+   brain8(saveData.videos);
+   money8(saveData.videos);
+   brain20(saveData.bonks);
+   money20(saveData.bonks);
+}, 1000);
 //Save function
 function save() {
     localStorage.setItem("gamesave",JSON.stringify(saveData));
