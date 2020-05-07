@@ -7,12 +7,10 @@ An idle game mostly about losing brain cells at an increasingly rapid rate.
 Features how many brain cells were lost, ways to increase amount lost, and money.
 This uses bootstrap 4.0 as of writing this.
 
-Version 1.51:
-- Loading should be fixed, need testing.
+Version 1.52:
+- Loading now has a warning screen
+- Deleting saves is now a thing, and a warning screen
 
 Issues not yet resolved:
 - Bad/ not fleshed out progression,
 - No end goal,
-- No way to delete save yet,
-- No confirmations when saving,
-- No warning or confirmations when loading
