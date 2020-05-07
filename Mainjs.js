@@ -14,6 +14,19 @@ var saveData = {
     bonks: 0,
     bonkCosts: 70.0
 };
+//Update html function
+function updateHTML(){
+	document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$';
+    document.getElementById('brainCells').innerHTML = saveData.brainCells;
+    document.getElementById('bookCost').innerHTML = saveData.bookCosts;
+    document.getElementById('bookAmount').innerHTML = saveData.books; 
+    document.getElementById('magicCost').innerHTML = saveData.magiciansCost;
+    document.getElementById('magicAmount').innerHTML = saveData.magicians; 
+    document.getElementById('videoCost').innerHTML = saveData.videoCosts;
+    document.getElementById('videoAmount').innerHTML = saveData.videos;
+    document.getElementById('bonkCost').innerHTML = saveData.bonkCosts;
+    document.getElementById('bonkAmount').innerHTML = saveData.bonks; 
+}
 //First load of money and brain cells
 document.getElementById('brainCells').innerHTML = saveData.brainCells;
 document.getElementById('totalMoney').innerHTML = saveData.money;
@@ -81,7 +94,7 @@ function buyVideo(number) {
     if(saveData.money >= saveData.videoCosts) {
         saveData.videos = saveData.videos + 1; 
         saveData.money = saveData.money - saveData.videoCosts;
-        saveData.videoCosts = (Math.round((Math.pow(saveData.videoCosts, 1.12)) * 10) / 10).toFixed(1);
+        saveData.videoCosts = (Math.round((Math.pow(saveData.videoCosts, 1.11)) * 10) / 10).toFixed(1);
         document.getElementById('videoCost').innerHTML = saveData.videoCosts;
         document.getElementById('videoAmount').innerHTML = saveData.videos; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$'; 
@@ -103,7 +116,7 @@ function buyBonk(number) {
     if(saveData.money >= saveData.bonkCosts) {
         saveData.bonks = saveData.bonks + 1; 
         saveData.money = saveData.money - saveData.bonkCosts;
-        saveData.bonkCosts = (Math.round((Math.pow(saveData.bonkCosts, 1.12)) * 10) / 10).toFixed(1);
+        saveData.bonkCosts = (Math.round((Math.pow(saveData.bonkCosts, 1.1)) * 10) / 10).toFixed(1);
         document.getElementById('bonkCost').innerHTML = saveData.bonkCosts;
         document.getElementById('bonkAmount').innerHTML = saveData.bonks; 
         document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$'; 
@@ -138,15 +151,22 @@ function load() {
     if (typeof savegame.videoCosts !== "undefined") saveData.videoCosts = savegame.videoCosts;
     if (typeof savegame.bonks !== "undefined") saveData.bonks = savegame.bonks;
     if (typeof savegame.bonkCosts !== "undefined") saveData.bonkCosts = savegame.bonkCosts;
-    document.getElementById('totalMoney').innerHTML = (Math.round(saveData.money * 10) / 10).toFixed(1) + '$';
-    document.getElementById('brainCells').innerHTML = saveData.brainCells;
-    document.getElementById('bookCost').innerHTML = saveData.bookCosts;
-    document.getElementById('bookAmount').innerHTML = saveData.books; 
-    document.getElementById('magicCost').innerHTML = saveData.magiciansCost;
-    document.getElementById('magicAmount').innerHTML = saveData.magicians; 
-    document.getElementById('videoCost').innerHTML = saveData.videoCosts;
-    document.getElementById('videoAmount').innerHTML = saveData.videos;
-    document.getElementById('bonkCost').innerHTML = saveData.bonkCosts;
-    document.getElementById('bonkAmount').innerHTML = saveData.bonks; 
+    updateHTML();
 }
 Load.addEventListener("click", load);
+//Delete Save function
+function deleteSave() {
+	localStorage.removeItem("gamesave");
+	saveData.brainCells = 0;
+    saveData.money = 0.0;
+    saveData.books = 0;
+    saveData.bookCosts = 3.0;
+    saveData.magicians = 0;
+    saveData.magiciansCost = 10.0;
+    saveData.videos = 0;
+    saveData.videoCosts = 30.0;
+    saveData.bonks = 0;
+    saveData.bonkCosts = 70.0;
+    updateHTML();
+}
+Delete.addEventListener("click", deleteSave);
