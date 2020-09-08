@@ -8,10 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        
-        <!-- My own CSS -->
-        <link rel="stylesheet" type="text/css" href="CSS.css">
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!-- Bootstrap JavaScript -->
@@ -26,6 +22,7 @@
                     <p>You gain .10$ for every brain cell lost, you have:<p id="totalMoney"></p></p>
                     <p>Brain cells lost:<p id="brainCells"></p> </p> <br>
                 </div>
+				<div id="alerts"></div>
                 <div class="container-fluid bg-dark">
                     <div class="border border-light bg-light rounded">
                         <p>Say something so stupid that one brain cell gets lost.</p>
@@ -58,8 +55,8 @@
                     <br>
                 </div>
             </div>
-            <footer class="bg-light border border-light rounded">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            <footer class="bg-light border border-light rounded text-center">
+                <button type="button" class="btn btn-primary justify-content-center" data-toggle="modal" data-target="#exampleModalLong">
                      More info
                 </button>
                 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -74,18 +71,16 @@
                                 I promised that I would make this one day and here it is, ready for you to break :P 
                                 Hope that whoever reads this can get as much as a laugh as I did making this. 
                                 <br> <br>
-                                Version: 1.51 <br>
+                                Version: 1.52 <br>
                                 <ul>
-                                    <li>Loading should be fixed, needs testing</li>
+                                    <li>Loading now has warning screen</li>
+									<li>Deleting saves is now a thing, and a warning screen</li>
                                 </ul>
                                 Known issues I may or may not fix: <br>
                                 <ul>
                                     <li>No real end other than endlessly increasing brain cell loseage</li>
                                     <li>Progression not as bad, but still not enough</li>
                                     <li>Lack of, well, visuals</li>
-                                    <li>No way to delete save yet</li>
-                                    <li>No confrimations or warning for loading game</li>
-                                    <li>No auto-save and no confirmations for saving</li>
                                 </ul>
                                 Github link: https://github.com/Woahingjoe/Losing-Brain-Cells-idle
                             
@@ -96,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#specialthanks">
+                <button type="button" class="btn btn-primary justify-content-center" data-toggle="modal" data-target="#specialthanks">
                      Special Thanks
                 </button>
                 <div class="modal fade" id="specialthanks" tabindex="-1" role="dialog" aria-labelledby="specialthankstitle" aria-hidden="true">
@@ -116,14 +111,52 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success" id="Save">Save</button>
-                <button class="btn btn-success" id="Load">Load</button>
+                <button class="btn btn-success justify-content-center" id="Save">
+					Save Game
+				</button>
+                <button type="button" class="btn btn-success justify-content-center" data-toggle="modal" data-target="#loadwarning">
+					Load Save
+				</button>
+				<div class="modal fade" id="loadwarning" tabindex="-1" role="dialog" aria-labelledby="loadwarningtitle" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header justify-content-center">
+								<h5>Warning!</h5>
+							</div>
+							<div class="modal-body">
+								Are you sure you want to load? This will replace your current save.
+							</div>
+							<div class="modal-footer justify-content-center">
+								<button type="button" class="btn btn-success" data-dismiss="modal" id="Load">Load</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="btn btn-danger justify-content-center" data-toggle="modal" data-target="#deletewarning">
+					Delete save
+				</button>
+				<div class="modal fade" id="deletewarning" tabindex="-1" role="dialog" aria-labelledby="deletewarningtitle" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header justify-content-center">
+								<h5>Warning!</h5>
+							</div>
+							<div class="modal-body">
+								Are you sure you want to reset your game? This will delete your all your progress and saves!
+							</div>
+							<div class="modal-footer justify-content-center">
+								<button type="button" class="btn btn-danger" data-dismiss="modal" id="Delete">Delete</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+						</div>
+					</div>
+				</div>
             </footer>
             <div>
                 <script type="text/javascript" src="Mainjs.js"></script>
-            </div>
-            
+            </div>    
         </div>
-           
     </body>
 </html>
+
