@@ -27,6 +27,13 @@ function updateHTML(){
     document.getElementById('bonkCost').innerHTML = saveData.bonkCosts;
     document.getElementById('bonkAmount').innerHTML = saveData.bonks; 
 }
+//Create alert function
+function addAlert(message) {
+    $('#alerts').append(
+        '<div class="alert alert-info alert-dismissible fade show text-center">' + message +
+            '<button type="button" class="close" data-dismiss="alert">' +
+            '&times;</button>' + '</div>');
+};
 //First load of money and brain cells
 document.getElementById('brainCells').innerHTML = saveData.brainCells;
 document.getElementById('totalMoney').innerHTML = saveData.money;
@@ -133,11 +140,17 @@ window.setInterval(function(){
    brain20(saveData.bonks);
    money20(saveData.bonks);
 }, 1000);
+//Auto Save 
+window.setInterval(function(){
+	save();
+}, 300000);
 //Save function
 function save() {
     localStorage.setItem("gamesave",JSON.stringify(saveData));
-}
+	addAlert('Game has been saved!');
+};
 Save.addEventListener("click", save);
+
 //Load function
 function load() {
     var savegame = JSON.parse(localStorage.getItem("gamesave"));
@@ -152,6 +165,7 @@ function load() {
     if (typeof savegame.bonks !== "undefined") saveData.bonks = savegame.bonks;
     if (typeof savegame.bonkCosts !== "undefined") saveData.bonkCosts = savegame.bonkCosts;
     updateHTML();
+	addAlert('Game has been loaded!');
 }
 Load.addEventListener("click", load);
 //Delete Save function
@@ -168,5 +182,6 @@ function deleteSave() {
     saveData.bonks = 0;
     saveData.bonkCosts = 70.0;
     updateHTML();
+	addAlert('Game has been deleted!');
 }
 Delete.addEventListener("click", deleteSave);
